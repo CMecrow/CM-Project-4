@@ -16,7 +16,7 @@ class Post(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.author
+        return self.content
 
     def number_of_votes(self):
         return self.votes.count()
