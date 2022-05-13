@@ -40,15 +40,18 @@
             <div class="container my-5">
                 <div class="row justify-content-center">
                 {% for post in post_list %}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <p class="content">{{ post.content }}</p>
-                                <p class="author">{{ post.author }}</p>
+                    <div class="col-md-3">
+                        <a href="#" class="content-link">
+                            <div class="card mb-3">
+                                <div class="card-body text-center">
+                                    <p class="content">{{ post.content | safe }}</p>
+                                    <p class="author">{{ post.author }}, {{ post.created_on }}</p>
+                                    <p class="votes">{{ post.number_of_votes }}</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                {% if forloop.counter|divisibleby:2 %}
+                {% if forloop.counter|divisibleby:4 %}
                 </div>
                 <div class="row">
                 {% endif %}
