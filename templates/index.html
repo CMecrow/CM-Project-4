@@ -35,17 +35,30 @@
     <div style="height: 20rem"></div>
 </div>
 <!-- Content section-->
-<section class="py-5">
+<div class="large-font-container">
+    <h2 class="text-center large-font" id="uncharted-up">Here Be Monsters...</h2>
+    <h2 class="text-center large-font reflection" id="uncharted-down">Herre Be Monsters...</h2>
+</div>
+<section class="py-5" id="block-2">
     <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <h2>Engaging Background Images</h2>
-                <p class="lead">The background images used in this template are sourced from Unsplash and are open
-                    source and free to use.</p>
-                <p class="mb-0">I can't tell you how many people say they were turned off from science because of a
-                    science teacher that completely sucked out all the inspiration and enthusiasm they had for the
-                    course.</p>
+            {% for post in post_list %}
+            <div class="col-md-3">
+                <a href="{% url 'post_detail' post.slug  %}" class="content-link">
+                    <div class="card mb-3">
+                        <div class="card-body text-center">
+                            <p class="content">{{ post.content | safe }}</p>
+                            <p class="author">{{ post.author }}, {{ post.created_on }}</p>
+                            <p class="votes">{{ post.number_of_votes }}</p>
+                        </div>
+                    </div>
+                </a>
             </div>
+            {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </section>
