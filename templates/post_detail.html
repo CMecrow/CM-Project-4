@@ -1,20 +1,51 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 <!-- Content section-->
 <section class="py-5">
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <a href="#" class="content-link">
-                    <div class="card mb-3">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <p class="content">{{ post.content | safe }}</p>
+                        <p class="author">{{ post.author }}, {{ post.created_on }}</p>
+                        {% with comments.count as total_comments %}
+                        <p class="votes">{{ post.number_of_votes }} {{ total_comments }}</p>
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <h2 class="sign-in-page">Comments</h2>
+                        {% for comment in comments %}
+                        <div class="comment-container text-center">
+                            <p><strong>{{ comment.author }}:</strong></p>
+                            <p>{{ comment.body | linebreaks }}</p>
+                            <p class="text-muted">{{ comment.created_on }}</p>
+                        </div>
+                        {% endfor %}
+                        {% if user.is_authenticated %}
                         <div class="card-body text-center">
-                            <p class="content">{{ post.content | safe }}</p>
-                            <p class="author">{{ post.author }}, {{ post.created_on }}</p>
-                            <p class="votes">{{ post.number_of_votes }}</p>
+                            <h2 class="sign-in-page">Speak your peace</h2>
+                            <p>Posting as: {{ user.username }}</p>
+                            <form method="post" style="margin-top: 1.3em;">
+                                {{ comment_form | crispy }}
+                                {% csrf_token %}
+                                <button type="submit" id="comment-submit" class="primaryAction btn btn-outline-primary">Submit</button>
+                            </form>
+                         {% endif %}
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>
