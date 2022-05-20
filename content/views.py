@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, CreateForm
 
 class PostList(generic.ListView):
     model = Post
@@ -35,7 +35,6 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = Comment.objects.order_by('created_on')
         voted = False
-        comment_form.post = post
         if post.votes.filter(id=self.request.user.id).exists():
             voted = True
 
@@ -45,7 +44,6 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            print(comment_form.instance.author)
         else:
             comment_form = CommentForm()
 
@@ -57,5 +55,17 @@ class PostDetail(View):
                 "comments": comments,
                 "voted": voted,
                 "comment_form": comment_form,
+            },
+        )
+
+class CreatePost(View):
+
+    def get(self, request, *args, **kwargs):
+
+        return render(
+            request,
+            "new_post.html",
+            {
+                "create_form": CreateForm()
             },
         )
