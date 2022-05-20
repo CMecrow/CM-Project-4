@@ -23,8 +23,9 @@ class Post(models.Model):
         return self.votes.count()
 
 class Comment(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment_text')
+    # author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=80)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField(max_length=600)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

@@ -26,13 +26,17 @@
                 <div class="card mb-3">
                     <div class="card-body text-center">
                         <h2 class="sign-in-page">Comments</h2>
-                        {% for comment in comments %}
+                        {% if not post.comments.all %}
+                        <h3>This conversation has sunk</h3>
+                        {% else %}
+                        {% for comment in post.comments.all %}
                         <div class="comment-container text-center">
                             <p><strong>{{ comment.author }}:</strong></p>
                             <p>{{ comment.body | linebreaks }}</p>
                             <p class="text-muted">{{ comment.created_on }}</p>
                         </div>
                         {% endfor %}
+                        {% endif %}
                         {% if user.is_authenticated %}
                         <div class="card-body text-center">
                             <h2 class="sign-in-page">Speak your peace</h2>
