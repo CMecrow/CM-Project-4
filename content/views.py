@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.utils.text import slugify
 from .models import Post, Comment
 from .forms import CommentForm, CreateForm
 
@@ -61,6 +62,27 @@ class PostDetail(View):
 class CreatePost(View):
 
     def get(self, request, *args, **kwargs):
+
+        return render(
+            request,
+            "new_post.html",
+            {
+                "create_form": CreateForm()
+            },
+        )
+    
+    def post(self, request, *args, **kwargs):
+
+        create_form = CreateForm(data=request.POST) 
+
+        if create_form.is_valid():
+            slug = slugify(create_form.instance.title)
+            create_form.instance.slug = slug
+            create_form.instance.author = request.user
+            created_post = create_form.save(commit=False)
+            created_post.save()
+        else:
+            create_form = CreateForm()
 
         return render(
             request,
