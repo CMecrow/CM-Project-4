@@ -12,9 +12,8 @@
                     <div class="card-body text-center">
                         <p class="content">{{ post.content | safe }}</p>
                         <p class="author">{{ post.author }}, {{ post.created_on }}</p>
-                        {% with comments.count as total_comments %}
-                        <p class="votes">{{ post.number_of_votes }} {{ total_comments }}</p>
-                        {% endwith %}
+                        <p class="votes">{{ post.number_of_votes }} <i class="fa-regular fa-thumbs-up"></i></i> <i class="fa-regular fa-thumbs-down"></i>
+                        <i class="fa-regular fa-comments"></i> {{ post.comments.count }} </p>
                     </div>
                 </div>
             </div>
