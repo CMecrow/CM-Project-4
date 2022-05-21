@@ -12,9 +12,10 @@ class Post(models.Model):
     content = models.TextField(max_length=600)
     status = models.IntegerField(choices=STATUS, default=1)
     votes = models.ManyToManyField(User, related_name='post_votes', blank=True)
+    # vote_count = models.IntegerField(votes, default='0')
 
-    class Meta:
-        ordering = ['-created_on']
+    # class Meta:
+    #     ordering = ['vote_count']
 
     def __str__(self):
         return self.content

@@ -1,14 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.utils.text import slugify
+from django.db.models import Count
 from .models import Post, Comment
 from .forms import CommentForm, CreateForm
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    # queryset = Post.objects.filter(status=1)#.order_by('-created_on')
+    queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('vote_count')
     template_name = 'index.html'
     paginate_by = 8
+
 
 class PostDetail(View):
 
@@ -98,3 +101,20 @@ class PostVote(View):
             post.votes.add(request.user)
         
         return redirect(reverse('post_detail', args=[slug]))
+
+
+class EditPost(View):
+
+    def get(self, request, slug, *args, **kwargs):
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        form = CreateForm(instance=post)
+
+        return render(
+            request,
+            "edit_post.html",
+            {
+                "create_form": form
+            },
+        )

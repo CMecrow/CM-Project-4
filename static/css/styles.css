@@ -172,6 +172,11 @@ a.content-link {
   padding-right: 2em;
 }
 
+.fa-pen-to-square {
+  padding-left: 1em;
+  color: black;
+}
+
 .fa-solid {
   color: blue;
 }

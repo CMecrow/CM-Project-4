@@ -25,7 +25,10 @@
                         {% else %}
                         <span><i class="fa-regular fa-thumbs-up"></i></span>
                         {% endif %}
-                        <i class="fa-regular fa-comments"></i> {{ post.comments.count }} </p>
+                        <i class="fa-regular fa-comments"></i> {{ post.comments.count }}
+                        {% if user == post.author %}
+                        <a href="{% url 'edit_post' post.slug %}"><i class="fa-regular fa-pen-to-square"></i></a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
