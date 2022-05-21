@@ -118,3 +118,12 @@ class EditPost(View):
                 "create_form": form
             },
         )
+    
+    def post(self, request, slug, *args, **kwargs):
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        form = CreateForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('post_detail', args=[slug]))
