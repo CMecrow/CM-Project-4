@@ -12,8 +12,6 @@ class Post(models.Model):
     content = models.TextField(max_length=600)
     status = models.IntegerField(choices=STATUS, default=1)
     votes = models.ManyToManyField(User, related_name='post_votes', blank=True)
-    upvote = models.IntegerField(default='0')
-    downvote = models.IntegerField(default='0')
 
     class Meta:
         ordering = ['-created_on']

@@ -168,8 +168,20 @@ a.content-link {
   
 }
 
-#down {
+.fa-thumbs-up {
   padding-right: 2em;
+}
+
+.fa-solid {
+  color: blue;
+}
+
+.like-button {
+  background: white !important;
+  border: none;
+  padding-left: 0;
+  padding-right: 2rem;
+  width: 1rem;
 }
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {

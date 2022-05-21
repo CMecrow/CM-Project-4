@@ -87,14 +87,14 @@ class CreatePost(View):
 
         return redirect('home',)
 
-# class PostLke(View):
+class PostVote(View):
 
-#     def post(self, request, slug):
-#         post = get_object_or_404(Post, slug=slug)
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
 
-#         if post.votes.filter(id=request.user.id).exists():
-#             post.votes.remove(request.user)
-#         else:
-#             post.votes.add(request.user)
+        if post.votes.filter(id=request.user.id).exists():
+            post.votes.remove(request.user)
+        else:
+            post.votes.add(request.user)
         
-#         return redirect(reverse('post_detail', args=[slug]))
+        return redirect(reverse('post_detail', args=[slug]))

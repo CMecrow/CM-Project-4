@@ -12,16 +12,16 @@
             {% for post in post_list %}
             <div class="col-md-3">
                 <div class="card mb-3">
-                    <div class="card-body text-center">
-                        <a href="{% url 'post_detail' post.slug  %}" class="content-link">
+                    <a href="{% url 'post_detail' post.slug  %}" class="content-link">
+                        <div class="card-body text-center">
                             <p class="content">{{ post.content | safe }}</p>
                             <p class="author">{{ post.author }}, {{ post.created_on }}</p>
-                        </a>
-                        <p class="votes">{{ post.number_of_votes }} 
-                            <a class="vote-icon thumbaction" href="" value="upvote"><i class="fa-regular fa-thumbs-up"></i></a>
-                            <a class="vote-icon thumbaction" href="" value="downvote"><i class="fa-regular fa-thumbs-down"></i></a>
-                            <i class="fa-regular fa-comments"></i> {{ post.comments.count }} </p>
-                    </div>
+                            <p> {{ post.number_of_votes }}
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comments"></i> {{ post.comments.count }}
+                            </p>
+                        </div>
+                    </a>
                 </div>
             </div>
             {% if forloop.counter|divisibleby:4 %}

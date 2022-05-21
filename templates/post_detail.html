@@ -12,7 +12,19 @@
                     <div class="card-body text-center">
                         <p class="content">{{ post.content | safe }}</p>
                         <p class="author">{{ post.author }}, {{ post.created_on }}</p>
-                        <p class="votes">{{ post.number_of_votes }} <i class="fa-regular fa-thumbs-up"></i></i> <i class="fa-regular fa-thumbs-down"></i>
+                        {{ post.number_of_votes }} 
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'post_votes' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if voted %}
+                            <button type="submit" name="post_id" value="{{post.slug}}" class="like-button"><i class="fa-solid fa-thumbs-up"></i></button>
+                            {% else %}
+                            <button type="submit" name="post_id" value="{{post.slug}}" class="like-button"><i class="fa-regular fa-thumbs-up"></i></button>
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span><i class="fa-regular fa-thumbs-up"></i></span>
+                        {% endif %}
                         <i class="fa-regular fa-comments"></i> {{ post.comments.count }} </p>
                     </div>
                 </div>
