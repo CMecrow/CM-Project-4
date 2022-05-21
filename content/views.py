@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.utils.text import slugify
 from .models import Post, Comment
@@ -84,10 +84,13 @@ class CreatePost(View):
         else:
             create_form = CreateForm()
 
-        return render(
-            request,
-            "new_post.html",
-            {
-                "create_form": CreateForm()
-            },
-        )
+        return redirect('home',)
+        #     request,
+        #     "index.html",
+        #     {
+        #         "post": post,
+        #         "comments": comments,
+        #         "voted": voted,
+        #         "comment_form": CommentForm()
+        #     },
+        # )
