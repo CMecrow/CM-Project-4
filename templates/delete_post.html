@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- Content section-->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card mb-3">
+                    {% if user.is_authenticated %}
+                    <div class="card-body text-center">
+                        <p class="content">{{ post.content | safe }}</p>
+                        <p class="author">{{ post.author }}, {{ post.created_on }}</p>
+                        {{ post.number_of_votes }}<span><i class="fa-regular fa-thumbs-up"></i></span>
+                        <i class="fa-regular fa-comments"></i> {{ post.comments.count }}
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-body text-center">
+                                    <h2 class="sign-in-page">Are you sure you want to delete this post?</h2>
+                                    <form method="post" style="margin-top: 1.3em;" action="{% url 'delete_post' post.slug %}">
+                                        {% csrf_token %}
+                                        <i class="fa-solid fa-ban"></i>
+                                        <a href="{% url 'post_detail' post.slug  %}" id="cancel-delete"> Cancel</a>
+                                        <i class="fa-regular fa-trash-can" id="delete-can"></i>
+                                        <input id="confirm-delete" type="submit" name="Confirm" value="Delete">
+                                    </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+{%endblock%}

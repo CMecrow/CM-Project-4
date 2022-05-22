@@ -127,3 +127,54 @@ class EditPost(View):
         if form.is_valid():
             form.save()
             return redirect(reverse('post_detail', args=[slug]))
+
+class EditPost(View):
+
+    def get(self, request, slug, *args, **kwargs):
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        form = CreateForm(instance=post)
+
+        return render(
+            request,
+            "edit_post.html",
+            {
+                "create_form": form
+            },
+        )
+    
+    def post(self, request, slug, *args, **kwargs):
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        form = CreateForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('post_detail', args=[slug]))
+
+class DeletePost(View):
+
+    def get(self, request, slug, *args, **kwargs):
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        form = CreateForm(instance=post)
+        return render(
+            request,
+            "delete_post.html",
+            {
+                "create_form": form,
+                "post": post
+            },
+        )
+    
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        form = CreateForm(instance=post)
+        post.delete()
+        return redirect('home',)
+
+
+

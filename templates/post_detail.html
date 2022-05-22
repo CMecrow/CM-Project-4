@@ -28,6 +28,7 @@
                         <i class="fa-regular fa-comments"></i> {{ post.comments.count }}
                         {% if user == post.author %}
                         <a href="{% url 'edit_post' post.slug %}"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="{% url 'delete_post' post.slug %}"><i class="fa-regular fa-trash-can"></i></a>
                         {% endif %}
                     </div>
                 </div>
