@@ -7,8 +7,8 @@ from .forms import CommentForm, CreateForm
 
 class PostList(generic.ListView):
     model = Post
-    # queryset = Post.objects.filter(status=1)#.order_by('-created_on')
-    queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('vote_count')
+    queryset = Post.objects.filter(status=1).order_by('votes')
+    # queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('vote_count')
     template_name = 'index.html'
     paginate_by = 8
 
