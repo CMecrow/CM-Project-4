@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.utils.text import slugify
-from django.db.models import Count
+# from django.db.models import Count
+from django.contrib import messages
 from .models import Post, Comment
 from .forms import CommentForm, CreateForm
 
@@ -49,6 +50,7 @@ class PostDetail(View):
             comment.post = post
             comment.save()
             comment_form = CommentForm()
+            messages.add_message(request, messages.SUCCESS, 'Comment successfuly submitted!')
         else:
             comment_form = CommentForm()
 
@@ -85,6 +87,7 @@ class CreatePost(View):
             create_form.instance.author = request.user
             created_post = create_form.save(commit=False)
             created_post.save()
+            messages.add_message(request, messages.SUCCESS, 'Post succesfully submitted!')
         else:
             create_form = CreateForm()
 
