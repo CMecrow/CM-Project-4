@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.utils.text import slugify
-# from django.db.models import Count
+from django.db.models import Count
 from django.contrib import messages
 from .models import Post, Comment
 from .forms import CommentForm, CreateForm
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('votes')
-    # queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('vote_count')
+    # queryset = Post.objects.filter(status=1).order_by(number_of_votes())
+    queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('-vote_count')
     template_name = 'index.html'
     paginate_by = 8
 
@@ -50,7 +50,7 @@ class PostDetail(View):
             comment.post = post
             comment.save()
             comment_form = CommentForm()
-            messages.add_message(request, messages.SUCCESS, 'Comment successfuly submitted!')
+            messages.add_message(request, messages.SUCCESS, 'Comment successfully submitted!')
         else:
             comment_form = CommentForm()
 
