@@ -9,7 +9,7 @@
 <section class="py-5">
     <div class="container my-5">
         <div class="row justify-content-center">
-            {% for post in post_list %}
+            {% for post in post_list_votes %}
             <div class="col-md-3 post-container">
                 <div class="card mb-3">
                     <a href="{% url 'post_detail' post.slug  %}" class="content-link">
@@ -45,7 +45,7 @@
 <section class="py-5" id="block-2">
     <div class="container my-5">
         <div class="row justify-content-center">
-            {% for post in post_list %}
+            {% for post in post_list_date %}
             <div class="col-md-3">
                 <a href="{% url 'post_detail' post.slug  %}" class="content-link">
                     <div class="card mb-3">

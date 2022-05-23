@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 STATUS = ((0, "Archived"), (1, "Published"))
 
+
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
@@ -17,11 +18,12 @@ class Post(models.Model):
     # class Meta:
     #     ordering = ['vote_count']
 
-    def __str__(self):
-        return self.content
+    # def __str__(self):
+    #     return self.content
 
     def number_of_votes(self):
         return self.votes.count()
+
 
 class Comment(models.Model):
     # author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
@@ -32,7 +34,7 @@ class Comment(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['-created_on']
 
-    def __str__(self):
-        return f"Comment {self.body} by {self.author}"
+    # def __str__(self):
+    #     return f"Comment {self.body} by {self.author}"

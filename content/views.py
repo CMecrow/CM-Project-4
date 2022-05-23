@@ -6,12 +6,33 @@ from django.contrib import messages
 from .models import Post, Comment
 from .forms import CommentForm, CreateForm
 
+
+# class PostList(generic.ListView):
+#     model = Post
+#     # queryset = Post.objects.filter(status=1).order_by(number_of_votes())
+#     queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('-vote_count')
+#     queryset_by_date = Post.objects.order_by('-created_on')
+#     template_name = 'index.html'
+#     paginate_by = 8
+
+    # def get_success_url(self):
+    #     return reverse('home', kwargs={'post_list': queryset, 'post_list_date': queryset_by_date})
+
 class PostList(generic.ListView):
-    model = Post
-    # queryset = Post.objects.filter(status=1).order_by(number_of_votes())
-    queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('-vote_count')
     template_name = 'index.html'
+    context_object_name = 'post_list_votes'
+    model = Post
     paginate_by = 8
+
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data(**kwargs)
+        context.update({
+            'post_list_date': Post.objects.order_by('-created_on')[:8],
+        })
+        return context
+
+    def get_queryset(self):
+        return Post.objects.annotate(vote_count=Count('votes')).order_by('-vote_count')
 
 
 class PostDetail(View):
@@ -65,6 +86,7 @@ class PostDetail(View):
             },
         )
 
+
 class CreatePost(View):
 
     def get(self, request, *args, **kwargs):
@@ -87,11 +109,13 @@ class CreatePost(View):
             create_form.instance.author = request.user
             created_post = create_form.save(commit=False)
             created_post.save()
-            messages.add_message(request, messages.SUCCESS, 'Post succesfully submitted!')
+            messages.add_message(request, messages.SUCCESS,
+                                 'Post succesfully submitted!')
         else:
             create_form = CreateForm()
 
         return redirect('home',)
+
 
 class PostVote(View):
 

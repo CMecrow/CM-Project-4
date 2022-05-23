@@ -14,7 +14,7 @@
                             <h2 class="sign-in-page">Edit</h2>
                             <p>Posting as: {{ user.username }}</p>
                             <form method="post" style="margin-top: 1.3em;">
-                                {{ create_form | crispy }}
+                                {{ create_form | crispy | safe }}
                                 {% csrf_token %}
                                 <button type="submit" id="comment-submit" class="primaryAction btn btn-outline-primary">Submit</button>
                             </form>
