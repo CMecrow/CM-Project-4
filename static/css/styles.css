@@ -137,7 +137,7 @@ nav {
   background: linear-gradient(0deg, #000 0, transparent 80%);
   -webkit-background-clip: text;
   color: transparent;
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 a.content-link {
@@ -160,6 +160,18 @@ a.content-link {
   padding-top: 5em;
   width: 30em;
   height: 20em;
+}
+
+#ocean-header-image {
+  background-image: url(../images/ocean-background2.webp);
+}
+
+#waves-image {
+  background-image: url(../images/waves-background.webp)
+}
+
+.post-container {
+  background-image: url(../images/bluebackground3.webp);  
 }
 
 #maps-footer {
@@ -7604,8 +7616,12 @@ textarea.form-control-lg {
   padding-bottom: 1.5rem !important;
 }
 
-.py-5 {
+.py-5-head {
   padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.py-5 {
   padding-bottom: 3rem !important;
 }
 

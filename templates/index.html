@@ -10,8 +10,8 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             {% for post in post_list_votes %}
-            <div class="col-md-3 post-container">
-                <div class="card mb-3">
+            <div class="col-md-3">
+                <div class="card mb-3 shadow post-container">
                     <a href="{% url 'post_detail' post.slug  %}" class="content-link">
                         <div class="card-body text-center">
                             <p class="content">{{ post.content | safe }}</p>
@@ -33,7 +33,7 @@
     </div>
 </section>
 <!-- Image element - set the background image for the header in the line below-->
-<div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+<div class="py-5 bg-image-full" id="waves-image">
     <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
     <div style="height: 20rem"></div>
 </div>
@@ -46,8 +46,8 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             {% for post in post_list_date %}
-            <div class="col-md-3 post-container">
-                <div class="card mb-3">
+            <div class="col-md-3">
+                <div class="card mb-3 shadow post-container">
                     <a href="{% url 'post_detail' post.slug  %}" class="content-link">
                         <div class="card-body text-center">
                             <p class="content">{{ post.content | safe }}</p>
