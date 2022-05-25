@@ -46,16 +46,19 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             {% for post in post_list_date %}
-            <div class="col-md-3">
-                <a href="{% url 'post_detail' post.slug  %}" class="content-link">
-                    <div class="card mb-3">
+            <div class="col-md-3 post-container">
+                <div class="card mb-3">
+                    <a href="{% url 'post_detail' post.slug  %}" class="content-link">
                         <div class="card-body text-center">
                             <p class="content">{{ post.content | safe }}</p>
                             <p class="author">{{ post.author }}, {{ post.created_on }}</p>
-                            <p class="votes">{{ post.number_of_votes }} {{ post.comments.count }}</p>
+                            <p> {{ post.number_of_votes }}
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comments"></i> {{ post.comments.count }}
+                            </p>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
             {% if forloop.counter|divisibleby:4 %}
         </div>
