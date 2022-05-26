@@ -8,7 +8,7 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card mb-3">
+                <div class="card mb-3 post-container shadow">
                     {% if user.is_authenticated %}
                     <div class="card-body text-center">
                         <p class="content">{{ post.content | safe }}</p>
