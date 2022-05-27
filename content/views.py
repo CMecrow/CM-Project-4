@@ -32,7 +32,8 @@ class PostList(generic.ListView):
         return context
 
     def get_queryset(self):
-        return Post.objects.annotate(vote_count=Count('votes')).order_by('-vote_count')
+        return Post.objects.annotate(vote_count=Count('votes'))\
+            .order_by('-vote_count')
 
 
 class PostDetail(View):
@@ -44,7 +45,7 @@ class PostDetail(View):
         voted = False
         if post.votes.filter(id=self.request.user.id).exists():
             voted = True
-        
+
         return render(
             request,
             "post_detail.html",
@@ -55,7 +56,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -71,7 +72,8 @@ class PostDetail(View):
             comment.post = post
             comment.save()
             comment_form = CommentForm()
-            messages.add_message(request, messages.SUCCESS, 'Comment successfully submitted!')
+            messages.add_message(request, messages.SUCCESS,
+                                 'Comment successfully submitted!')
         else:
             comment_form = CommentForm()
 
@@ -98,7 +100,7 @@ class CreatePost(View):
                 "create_form": CreateForm()
             },
         )
-    
+
     def post(self, request, *args, **kwargs):
 
         create_form = CreateForm(data=request.POST) 
@@ -126,7 +128,7 @@ class PostVote(View):
             post.votes.remove(request.user)
         else:
             post.votes.add(request.user)
-        
+
         return redirect(reverse('post_detail', args=[slug]))
 
 
@@ -145,7 +147,7 @@ class EditPost(View):
                 "create_form": form
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
@@ -155,30 +157,6 @@ class EditPost(View):
             form.save()
             return redirect(reverse('post_detail', args=[slug]))
 
-class EditPost(View):
-
-    def get(self, request, slug, *args, **kwargs):
-
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        form = CreateForm(instance=post)
-
-        return render(
-            request,
-            "edit_post.html",
-            {
-                "create_form": form
-            },
-        )
-    
-    def post(self, request, slug, *args, **kwargs):
-
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        form = CreateForm(request.POST, instance=post)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('post_detail', args=[slug]))
 
 class DeletePost(View):
 
@@ -195,13 +173,10 @@ class DeletePost(View):
                 "post": post
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         form = CreateForm(instance=post)
         post.delete()
         return redirect('home',)
-
-
-
