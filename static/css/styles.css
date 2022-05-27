@@ -174,6 +174,10 @@ a.content-link {
   background-image: url(../images/bluebackground3.webp);  
 }
 
+.post-container-large {
+  background-image: url(../images/bluebackground3-large.webp)
+}
+
 .comment-container {
   background-color: #e9f1f4;
 }
@@ -237,6 +241,26 @@ a.content-link {
   margin-right: auto; 
   width: 30em; /* Need a specific value to work */
 
+}
+
+.socials {
+  text-align: center;
+}
+
+.socials > li {
+  display: inline;
+}
+
+.socials i {
+  font-size: 150%;
+  color: white;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.socials i:hover {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
