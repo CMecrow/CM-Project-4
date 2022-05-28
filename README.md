@@ -104,7 +104,7 @@ This decision was made because the site does not contain any actual pagination, 
 
 ### Admin Page
 
-- The admin page is handled by django's built in admin panel. From here the site admin can moderate posts and comments, deleting or editing them as required. They can also moderate users and change passwords. The admin page also provides the user the ability to add comments or posts. When the project was first started, there was much more emphasis placed on the creation of posts from this page, so tools such a summernote were added to enhance the created posts. However, as the project developed it became clear that this functionality wouldn't be nesicary in the current project itteration, as it was much easier and quicker to add posts from the main site pages. There was also an issue found with adding and then editting posts created in summernote, which is detailed in the testing document.
+- The admin page is handled by django's built in admin panel. From here the site admin can moderate posts and comments, deleting or editing them as required. They can also moderate users and change passwords. One particularly useful action that can be taken on the admin page is archiving posts. As the first 8 posts on the homepage are displayed in order of popularity, the posts there could remain there for a long time. Should the admin decide to archive a post, it will then be removed from the page but still accessible via the admin page. The admin page also provides the user the ability to add comments or posts. When the project was first started, there was much more emphasis placed on the creation of posts from this page, so tools such a summernote were added to enhance the created posts. However, as the project developed it became clear that this functionality wouldn't be nesicary in the current project itteration, as it was much easier and quicker to add posts from the main site pages. There was also an issue found with adding and then editting posts created in summernote, which is detailed in the testing document.
 
 ---
 
@@ -120,7 +120,7 @@ This decision was made because the site does not contain any actual pagination, 
 
 ### Post images
 
-- At the begining of the project, there was an idea to include an image with posts, set by the post author. To facilitate this, cloudinary was installed. It become clear however that this was unnesicary given the site purpose, and an image would detract from the theme of the site, and also from the user experience as a whole. It's benefits would be very niche and it would be potentially open to misuse, making the moderation of the site more difficult. Cloudinary has been left in the project should any image functionality be required once a solution has been found to the aforementioned problems. One such use that would not impact the site's theme would be adding more customisation and an image upload for user profiles.
+- At the begining of the project, there was an idea to include an image with posts, set by the post author. To facilitate this, cloudinary was installed. It become clear however that this was unnesicary given the site purpose, and an image would detract from the theme of the site, and also from the user experience as a whole. It's benefits would be very niche and it would be potentially open to misuse, making the moderation of the site more difficult. Cloudinary has been left in the project should any image functionality be required once a solution has been found to the aforementioned problems, as well as to host static and media files once deployed to Heroku. One such use of images that would not impact the site's theme would be adding more customisation and an image upload for user profiles.
 
 ### User Profiles
 
@@ -131,3 +131,31 @@ This decision was made because the site does not contain any actual pagination, 
 - The main feature that could not be added in the project's current itteration was the downvote feature. The project was started with the idea of having posts voted on, rather than being liked. Because of this, any classes or variables related to this functionality are usually called vote or votes, rather like or likes, which is what the feature became. The primary block on this feature was a knowledge gap, and a concern over the amount of time required to fill that gap so the feature could be implimented. The current itteration of the like functionality is flawed and would be one of the first features to be reviewed in the feature. The way that likes are stored and displayed via the page refreshing is far from ideal and I'm certain a more suitable solution could be found. Although not the original goal, users being able to like posts has still provided a large benefit to the project, not only improving the user experience and interaction with the site, but also providing a conventional pleasing way to sort the posts on the main page. A user would want and expect to see popular posts at the top of the page, and it makes the site look good to the user because it's promoting the posts with the most user interactions.
 
 ---
+
+## Data Model
+
+![https://i.imgur.com/hGvGKKd](https://i.imgur.com/hGvGKKd.jpg "Data Model")
+
+The data models used relate to the Post, Comments and Votes with the Post being the tying link between the three. This link is required for the comments and votes to be attached to the relevant post. There are two aspects of the data model that are not currently being displayed to the user, namely the 'Update On' data in both post and comments. This was a concious decision to stop the home page or post page from becoming too cluttered and text heavy. The data was left in the models as it could be used in future were users editing their posts to make the commenters look silly, so some sort of 'updated on' field needed to be displayed, or should it be required for some other functionality.
+
+---
+
+## Deployment procedure
+
+- I created a new app on Heroku named off-the-map
+- I then added a postgres database to the app in Heroku
+- I took the postgres url from Heroku and added it as an enviroment variable in an env.py file in gitpod
+- I added a secretkey as an enviroment variable in the same env.py file, then stored this as a config var in Heroku
+- I imported the database url in settings.py along with adding the created enviroment variables to complete the database set up
+- From my cloudinary account, I copied over my API enviroment variable and stored it as another enviroment variable in my env.py file and a config var in Heroku
+- After making sure that cloudinary was installed in settings.py, I ensured that all media and static files would be stored there
+- Once the templates directory has been created and joined with the base directory, I changed the DIRS key to refer to template directory variable
+- I then added the Heroku link into the allowed hosts in settings.py
+- I created a proc file to show Heroku what's required to run the project, entering web and gunicorn
+- Rather than then linking the Heroku app with Github's deployment, as that functionality had been removed due to a security concern, I deployed to Heroku directly from the gitpod terminal via the following commands:
+    - heroku login -i
+    - heroku git:remote -a off-the-map 
+    - git push origin main (pushing to GitHub)
+    - git push heroku main (pushing to Heroku)
+
+

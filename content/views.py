@@ -27,13 +27,14 @@ class PostList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(PostList, self).get_context_data(**kwargs)
         context.update({
-            'post_list_date': Post.objects.order_by('-created_on')[:8],
+            'post_list_date': Post.objects.filter(status=1).order_by(
+                '-created_on')[:8],
         })
         return context
 
     def get_queryset(self):
-        return Post.objects.annotate(vote_count=Count('votes'))\
-            .order_by('-vote_count')
+        return Post.objects.filter(status=1)\
+            .annotate(vote_count=Count('votes')).order_by('-vote_count')
 
 
 class PostDetail(View):
@@ -103,7 +104,7 @@ class CreatePost(View):
 
     def post(self, request, *args, **kwargs):
 
-        create_form = CreateForm(data=request.POST) 
+        create_form = CreateForm(data=request.POST)
 
         if create_form.is_valid():
             slug = slugify(create_form.instance.title)
