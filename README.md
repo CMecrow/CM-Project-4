@@ -65,7 +65,19 @@ Each post card visible on the home page is a link to the individual post's page.
 
 #### Comments
 
-The comments box is displayed underneath the post. Under a heading of 'Comments', a list of all existing comments is displayed, with each comment detailing the user, the comment left and then the date and time that the comment was created.
+The comments box is displayed underneath the post. Under a heading of 'Comments', a list of all existing comments is displayed with most recent at the top, each comment details the user, the comment left and then the date and time that the comment was created. If the user viewing the post is logged in, they can leave a comment. They will be notified who they are posting as, should they have multiple accounts. If the comment field is left blank when the user hits submit then they will receive a prompt to enter a comment. Once the comment is successfuly submitted, the page is refreshed so the user can see their entered comment, and a message is also shown at the top of the page confirming that the comment was left successfully. 
+
+### Edit Post
+
+As mentioned, if the user viewing the post is the post's author, an edit icon is visible. Clicking this will take the user to an edit post page where the title and post itself can be changed. Hitting submit on the post will then submit the post, take the user back to the post detail page and provide a message confirming this to the user.
+
+### Delete Post
+
+Again, if the user viewing the post is the post's author, a delete icon is visible. Clicking this will take the user to a delete post page where the post is displayed along with the like and comment counter. There is a distinct confirmation box displayed below the post providing the user with the option of cancelling which redirects back to the post detail page, or confirming, where the post will be deleted and a message displayed to the user.
+
+### Create Post
+
+If the user is signed in, they'll have access to the 'Post' option on the navbar. Clicking this link will take the user to the new post page. This is a very simple form where they'll be asked for a post title and the post content itself. 
 
 ### Future Features
 

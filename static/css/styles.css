@@ -188,6 +188,10 @@ a.content-link {
   background-color: #e9f1f4;
 }
 
+.authentication-form-container {
+  padding-left: 1em;
+}
+
 #maps-footer {
   padding: 0;
   height: 4em;
@@ -247,6 +251,10 @@ a.content-link {
   margin-right: auto; 
   width: 30em; /* Need a specific value to work */
 
+}
+
+.form-group {
+  padding-bottom: 1em;
 }
 
 .socials {

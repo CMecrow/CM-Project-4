@@ -155,6 +155,8 @@ class EditPost(View):
         form = CreateForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
+            messages.add_message(request, messages.SUCCESS,
+                                 'Post successfuly edited!')
             return redirect(reverse('post_detail', args=[slug]))
 
 
@@ -178,4 +180,6 @@ class DeletePost(View):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         post.delete()
+        messages.add_message(request, messages.SUCCESS,
+                             'Post successfully deleted!')
         return redirect('home',)
