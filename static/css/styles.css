@@ -104,6 +104,8 @@ hr:not([size]) {
   height: 1px;
 }
 
+/* Custom CSS */
+
 #title {
   font-family: 'Amatic SC', cursive;
   font-size: 6rem;
@@ -120,7 +122,7 @@ nav {
 }
 
 .large-font {
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Amatic SC', cursive, sans-serif;
   font-size: 3rem;
   color: black;
 }
@@ -262,6 +264,8 @@ a.content-link {
 .socials i:hover {
   color: rgba(255, 255, 255, 0.55);
 }
+
+/* End of custom CSS */
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
