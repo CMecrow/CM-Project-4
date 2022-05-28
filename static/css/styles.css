@@ -127,6 +127,10 @@ nav {
   color: black;
 }
 
+#header-content {
+  padding-top: 4.5em;
+}
+
 #uncharted-up {
   margin-bottom: 0;
 }

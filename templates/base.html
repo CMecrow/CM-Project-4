@@ -38,24 +38,26 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row" id="alert-container">
-            <div class="col-md-8" id="alert-box">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div id="header-content">
+        <div class="container">
+            <div class="row" id="alert-container">
+                <div class="col-md-8" id="alert-box">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                        {{ message | safe }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-    </div>
-    <!-- Header - set the background image for the header in the line below-->
-    <header class="py-5-head bg-image-full" id="ocean-header-image">
-        <div class="text-center my-5">
-            <h1 id="title">Off The Map</h1>
-        </div>
-    </header>
+        <!-- Header - set the background image for the header in the line below-->
+        <header class="py-5-head bg-image-full" id="ocean-header-image">
+            <div class="text-center my-5">
+                <h1 id="title">Off The Map</h1>
+            </div>
+        </header>
+    </body>
 
     <main>
         {% block content %}
@@ -84,11 +86,13 @@
     <!-- Core theme JS-->
     <script src="/static/js/scripts.js"></script>
     <script>
-        setTimeout(function () {
-            let messages = document.getElementById("msg");
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 3000);
+        // setTimeout(function () {
+        //     let messages = document.getElementById("msg");
+        //     if (messages !== null) {
+        //         let alert = new bootstrap.Alert(messages);
+        //         alert.close();
+        //     }
+        // }, 3000);
     </script>
 </body>
 

@@ -14,7 +14,7 @@
                 <div class="card mb-3 shadow post-container">
                     <a href="{% url 'post_detail' post.slug  %}" class="content-link">
                         <div class="card-body text-center">
-                            <p class="content">{{ post.content | safe }}</p>
+                            <p class="content">{{ post.content }}</p>
                             <p class="author">{{ post.author }}, {{ post.created_on }}</p>
                             <p> {{ post.number_of_votes }}
                                 <i class="fa-regular fa-thumbs-up"></i>
