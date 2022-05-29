@@ -167,6 +167,7 @@ The data model used relates to the Post and Comments features with the Post bein
 - I then added the Heroku link into the allowed hosts in settings.py
 - I created a proc file to show Heroku what's required to run the project, entering web and gunicorn
 - I set Debug to False in settings.py and added X_FRAME_OPTIONS = 'SAMEORIGIN' to enable the summernotes editor to work once the site has been deployed to Heroku.
+- I removed the DISABLE_COLLECTSTATIC config var in Heroku
 - Rather than then linking the Heroku app with Github's deployment, as that functionality had been removed due to a security concern, I deployed to Heroku directly from the gitpod terminal via the following commands:
     - heroku login -i
     - heroku git:remote -a off-the-map 
