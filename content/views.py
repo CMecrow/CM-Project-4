@@ -7,17 +7,6 @@ from .models import Post, Comment
 from .forms import CommentForm, CreateForm
 
 
-# class PostList(generic.ListView):
-#     model = Post
-#     # queryset = Post.objects.filter(status=1).order_by(number_of_votes())
-#     queryset = Post.objects.annotate(vote_count=Count('votes')).order_by('-vote_count')
-#     queryset_by_date = Post.objects.order_by('-created_on')
-#     template_name = 'index.html'
-#     paginate_by = 8
-
-    # def get_success_url(self):
-    #     return reverse('home', kwargs={'post_list': queryset, 'post_list_date': queryset_by_date})
-
 class PostList(generic.ListView):
     template_name = 'index.html'
     context_object_name = 'post_list_votes'

@@ -29,15 +29,19 @@ The main goals of this project starting out were:
 - As a site user I can upvote or downvote a post so that I can interact with the content
 - As a site user I can edit my own post so that I can edit if required or delete it
 
-The second and seventh user story are discussed in more detail in the Future Features section
+Note: These are available in the GitHub repo via a kanban board created in Projects. The second and seventh user story are discussed in more detail in the Future Features section
 
 ---
 
 ### Site Theme
 
-- The overall layout used was taken from [startbootstrap.com](https://startbootstrap.com/). This was done to speed up site completion as the functionality of the site was a primary goal, rather than the site appearance. Though the layout was premade, there was some customisation required to fit the overall theme of the site. The idea that users were submitting outlandish opinions that were so far out there they were 'Off the Map' gave a nice old nautical feel, that these opinions were off in uncharted waters. I decided not to lean into this too heavily and only use two ocean images, as not to distract from the posts, and also to use a handwritten style font, found on [GoogleFonts](https://fonts.google.com/specimen/Amatic+SC?category=Display,Handwriting&preview.text=Off%20The%20Map&preview.text_type=custom#standard-styles). This font was chosen because it would suit the theme and appear as though it was handwritten, but was also clearly legible for users with accessibility in mind.
+- The overall layout used was taken from [startbootstrap.com](https://startbootstrap.com/). This was done to speed up site completion as the functionality of the site was a primary goal, rather than the site appearance. Though the layout was pre-made, there was some customisation required to fit the overall theme of the site. The idea that users were submitting outlandish opinions that were so far out there they were 'Off the Map' gave a nice old nautical feel, that these opinions were off in uncharted waters. I decided not to lean into this too heavily and only use two ocean images, as not to distract from the posts, and also to use a handwritten style font, found on [GoogleFonts](https://fonts.google.com/specimen/Amatic+SC?category=Display,Handwriting&preview.text=Off%20The%20Map&preview.text_type=custom#standard-styles). This font was chosen because it would suit the theme and appear as though it was handwritten, but was also clearly legible for users with accessibility in mind.
 
 ---
+
+## Wireframes
+
+![https://i.imgur.com/Ag3mu5L](https://i.imgur.com/Ag3mu5L.jpg "Site wireframes")
 
 ## Features
 
@@ -45,11 +49,11 @@ The second and seventh user story are discussed in more detail in the Future Fea
 
 ### Homepage
 
-- The site has been designed to have a lot of content imediately visible when the site loads. The site will operate around two main layouts, the homepage and the individual post pages. The user generated content is very much the focus of this site so there was no need to add complex and text heavy navbar or header. Instead the choice was made to keep them simple and uncluttered so the content could take center stage.
+- The site has been designed to have a lot of content immediately visible when the site loads. The site will operate around two main layouts, the homepage and the individual post pages. The user generated content is very much the focus of this site so there was no need to add complex and text heavy navbar or header. Instead the choice was made to keep them simple and uncluttered so the content could take centre stage.
 
 ### Navbar
 
-- The navbar was kept clear and uncluttered with the site name on the left that also functions as 'home' navigation, and then only two links on the right hand side. Before the user had created an account or logged in, these would be 'Sign In' and 'Register'. Because the user can only view posts and not interact with the site before they're logged in, there was no need to add a 'Post' link until they were authenticated. Once an account has been created and the user has signed in, the links change to 'Post' and 'Sign Out', reflecting the new choices that are now available to the user. Getting the user to register and then sign in is very important for the site because it allows them to interact with existing posts, and also create posts themselves. Because of the importance of 'Register', 'Sign In' and then once completed, 'Post'. The navbar was chosen to be fixed at the top of the screen, allowing easy access at all times for the user. This was also important because of the amount of content displayed on the homepage, depending on device width, there could be a lot of scrolling involved for the user. To improve responsiveness, the layout chosen also includes the functionality for the nav links to collapse into a hamburger icon for ease of use. Though this may not have been explicitly useful in the current itteration of the site with there only being two links present, it would future proof any future site growth.
+- The navbar was kept clear and uncluttered with the site name on the left that also functions as 'home' navigation, and then only two links on the right hand side. Before the user had created an account or logged in, these would be 'Sign In' and 'Register'. Because the user can only view posts and not interact with the site before they're logged in, there was no need to add a 'Post' link until they were authenticated. Once an account has been created and the user has signed in, the links change to 'Post' and 'Sign Out', reflecting the new choices that are now available to the user. Getting the user to register and then sign in is very important for the site because it allows them to interact with existing posts, and also create posts themselves. Because of the importance of 'Register', 'Sign In' and then once completed, 'Post'. The navbar was chosen to be fixed at the top of the screen, allowing easy access at all times for the user. This was also important because of the amount of content displayed on the homepage, depending on device width, there could be a lot of scrolling involved for the user. To improve responsiveness, the layout chosen also includes the functionality for the nav links to collapse into a hamburger icon for ease of use. Though this may not have been explicitly useful in the current iteration of the site with there only being two links present, it would future proof any future site growth.
 
 ### Footer
 
@@ -57,7 +61,7 @@ The second and seventh user story are discussed in more detail in the Future Fea
 
 ### Header + Mid page image and text
 
-- The header image is the only main image that's repeated across pages throughout the site. As mentioned, it was a priority that the created posts take the forground on the site, so any large images would have to be muted and not drag attention away. Both chosen images are of the ocean to match the theme of the site, and work more to break up the content and page than be a point of interest themselves. The acompanying text, 'Uncharted Waters' and 'Here be Monsters' again fit the nautical theme, but looked very boring and blockish when first put onto the page. To remedy this I duplicated the text and styled it via css to appear as a water reflection, taking guidance from both [this video](https://www.youtube.com/watch?v=nqa-nC6vMqY&t=1s), and [this tutorial](https://www.geeksforgeeks.org/how-to-create-reflection-effect-using-html-and-css/).
+- The header image is the only main image that's repeated across pages throughout the site. As mentioned, it was a priority that the created posts take the foreground on the site, so any large images would have to be muted and not drag attention away. Both chosen images are of the ocean to match the theme of the site, and work more to break up the content and page than be a point of interest themselves. The accompanying text, 'Uncharted Waters' and 'Here be Monsters' again fit the nautical theme, but looked very boring and blockish when first put onto the page. To remedy this I duplicated the text and styled it via CSS to appear as a water reflection, taking guidance from both [this video](https://www.youtube.com/watch?v=nqa-nC6vMqY&t=1s), and [this tutorial](https://www.geeksforgeeks.org/how-to-create-reflection-effect-using-html-and-css/).
 
 ### Register
 
@@ -65,11 +69,11 @@ The second and seventh user story are discussed in more detail in the Future Fea
 
 ### Sign in
 
-- The sign in page is very similar to the register page described above. There is a link to the sign up page, should the user have clicked on the wrong option in the nav. Then there are input fields for username and password with a checkbox for remember me. After clicking submit, if unsuccesful an error of 'The username and/or password you specified are not correct.' If successful the user is taken back to the home page with a message to say that they've successfuly signed in as their username.
+- The sign in page is very similar to the register page described above. There is a link to the sign up page, should the user have clicked on the wrong option in the nav. Then there are input fields for username and password with a checkbox for remember me. After clicking submit, if unsuccessful an error of 'The username and/or password you specified are not correct.' If successful the user is taken back to the home page with a message to say that they've successfully signed in as their username.
 
 ### Sign out
 
-- Only visible once the user is signed in, Sign Out if accessible via the navbar. Clicking the link takes you to a simple page with confirmation that you want to sign out and a submit button. If the button is pressed the user is given another confirmation message that they have successfuly signed out.
+- Only visible once the user is signed in, Sign Out if accessible via the navbar. Clicking the link takes you to a simple page with confirmation that you want to sign out and a submit button. If the button is pressed the user is given another confirmation message that they have successfully signed out.
 
 ### Post display
 
@@ -80,15 +84,15 @@ This decision was made because the site does not contain any actual pagination, 
 
 ### Individual post view
 
-- Each post card visible on the home page is a link to the individual post's page. This is indicated to the user via the cursor changing to pointer, indicating that the card can be clicked to take you elsewhere. The post's page displays the post in a similar format to the homepage, though this time in a much larger container and with some interactable icons. These icons are again only interactable if the user is registered and logged in.
-    - The first icon that can be clicked is the thumbs up, 'like' icon, with acompanying counter to its left. If clicked, the page is reloaded with the icon now appearing as blue along with the counter increasing, indicating that the like has been added. The icon can also be clicked again to remove the like, again refreshing the page and updating the icon and counter. Functionality has been added so that the likes are added to the database and each user can only like each post once. This keeps the post listing integrity intact, blocking users from inflating a post's like count by themselves.
-    - The second icon is not interactable, this is the comment icon with acompanything counter. This icon does not need to be interactable because the comment box is visibly situated just below the post, though this will be discussed later. 
-    - The third icon is the edit icon. This icon is only visible and interactable if the user who is viewing the post, is the user who intially created the post. This icon will take the user through to the 'edit post' page.
+- Each post card visible on the home page is a link to the individual post's page. This is indicated to the user via the cursor changing to pointer, indicating that the card can be clicked to take you elsewhere. The post's page displays the post in a similar format to the homepage, though this time in a much larger container and with some icons the user can interact with. These icons are again only accessible if the user is registered and logged in.
+    - The first icon that can be clicked is the thumbs up, 'like' icon, with accompanying counter to its left. If clicked, the page is reloaded with the icon now appearing as blue along with the counter increasing, indicating that the like has been added. The icon can also be clicked again to remove the like, again refreshing the page and updating the icon and counter. Functionality has been added so that the likes are added to the database and each user can only like each post once. This keeps the post listing integrity intact, blocking users from inflating a post's like count by themselves.
+    - The second icon is not interactable, this is the comment icon with accompanything counter. This icon does not need to be interactable because the comment box is visibly situated just below the post, though this will be discussed later. 
+    - The third icon is the edit icon. This icon is only visible and interactable if the user who is viewing the post, is the user who initially created the post. This icon will take the user through to the 'edit post' page.
     - The fourth icon is similar to the third, the delete icon. Again this icon is only visible and interactable if the user who is viewing the post is the user who created the post. Clicking this icon will take the user through to the 'delete post' page.
 
 #### Comments
 
-- The comments box is displayed underneath the post. Under a heading of 'Comments', a list of all existing comments is displayed with most recent at the top, each comment details the user, the comment left and then the date and time that the comment was created. If the user viewing the post is logged in, they can leave a comment. They will be notified who they are posting as, should they have multiple accounts. If the comment field is left blank when the user hits submit then they will receive a prompt to enter a comment. Once the comment is successfuly submitted, the page is refreshed so the user can see their entered comment, and a message is also shown at the top of the page confirming that the comment was left successfully. 
+- The comments box is displayed underneath the post. Under a heading of 'Comments', a list of all existing comments is displayed with most recent at the top, each comment details the user, the comment left and then the date and time that the comment was created. If the user viewing the post is logged in, they can leave a comment. They will be notified who they are posting as, should they have multiple accounts. If the comment field is left blank when the user hits submit then they will receive a prompt to enter a comment. Once the comment is successfully submitted, the page is refreshed so the user can see their entered comment, and a message is also shown at the top of the page confirming that the comment was left successfully. 
 
 ### Edit Post
 
@@ -104,7 +108,7 @@ This decision was made because the site does not contain any actual pagination, 
 
 ### Admin Page
 
-- The admin page is handled by django's built in admin panel. From here the site admin can moderate posts and comments, deleting or editing them as required. They can also moderate users and change passwords. One particularly useful action that can be taken on the admin page is archiving posts. As the first 8 posts on the homepage are displayed in order of popularity, the posts there could remain there for a long time. Should the admin decide to archive a post, it will then be removed from the page but still accessible via the admin page. The admin page also provides the user the ability to add comments or posts. When the project was first started, there was much more emphasis placed on the creation of posts from this page, so tools such a summernote were added to enhance the created posts. However, as the project developed it became clear that this functionality wouldn't be nesicary in the current project itteration, as it was much easier and quicker to add posts from the main site pages. There was also an issue found with adding and then editting posts created in summernote, which is detailed in the testing document.
+- The admin page is handled by django's built in admin panel. From here the site admin can moderate posts and comments, deleting or editing them as required. They can also moderate users and change passwords. One particularly useful action that can be taken on the admin page is archiving posts. As the first 8 posts on the homepage are displayed in order of popularity, the posts there could remain there for a long time. Should the admin decide to archive a post, it will then be removed from the page but still accessible via the admin page. The admin page also provides the user the ability to add comments or posts. When the project was first started, there was much more emphasis placed on the creation of posts from this page, so tools such a summernote were added to enhance the created posts. However, as the project developed it became clear that this functionality wouldn't be necessary in the current project iteration, as it was much easier and quicker to add posts from the main site pages. There was also an issue found with adding and then editing posts created in summernote, which is detailed in the testing document.
 
 ---
 
@@ -112,31 +116,31 @@ This decision was made because the site does not contain any actual pagination, 
 
 ### Post Display
 
-- There are issues with the current post layout. For example if the site was used a lot and there were a lot of posts left, potentially posts could get lost inbetween the two displays. They may not fall into the first display as there wasn't enough likes on the post, but the post also wasn't new enough to be displayed in the second section ordered by creation. This relates to the second listed user story of viewing a paginated list of posts. The goal of this user story was so that the user can view posts without the acompanying comments. This second section was important so that the user could glance over posts and find one that interested them, rather than having to trawl through content they weren't grabbed by, and the discussion surrounding them. This goal of the user story has been met with the current structure of the home page. A concern over adding extra site pages and pagination was that the site could become cluttered and slow to load. Should these concerns be addressed, there are a couple of solutions that could be implimented. You could keep the current structure of 8 posts, then an image, then 8 posts, carrying on for a much larger quanitity, potentially add a menu to 'Sort By'. Or the home page could be kept the same but new pages added, one for 'Most Popular' where a larger amount of posts could be displayed and one for 'New' where all the new posts across a certain period would be shown. This feature was not added to the original design of the site because of the size of the task and aforementioned concerns, impacting both time constraints and knowledge gaps.
+- There are issues with the current post layout. For example if the site was used a lot and there were a lot of posts left, potentially posts could get lost inbetween the two displays. They may not fall into the first display as there wasn't enough likes on the post, but the post also wasn't new enough to be displayed in the second section ordered by creation. This relates to the second listed user story of viewing a paginated list of posts. The goal of this user story was so that the user can view posts without the accompanying comments. This second section was important so that the user could glance over posts and find one that interested them, rather than having to trawl through content they weren't grabbed by, and the discussion surrounding them. This goal of the user story has been met with the current structure of the home page. A concern over adding extra site pages and pagination was that the site could become cluttered and slow to load. Should these concerns be addressed, there are a couple of solutions that could be implemented. You could keep the current structure of 8 posts, then an image, then 8 posts, carrying on for a much larger quantity, potentially add a menu to 'Sort By'. Or the home page could be kept the same but new pages added, one for 'Most Popular' where a larger amount of posts could be displayed and one for 'New' where all the new posts across a certain period would be shown. This feature was not added to the original design of the site because of the size of the task and aforementioned concerns, impacting both time constraints and knowledge gaps.
 
-### Post Catagories
+### Post Categories
 
-- With some expansion on the post model and PostList view, each post could be assigned a catagory by the post author or admin, so users could select to view only posts of that catagory, for example 'food', 'sports', 'politics' or 'animals'. This feature was outside the scope of the current project itteration due to time constraints.
+- With some expansion on the post model and PostList view, each post could be assigned a category by the post author or admin, so users could select to view only posts of that category, for example 'food', 'sports', 'politics' or 'animals'. This feature was outside the scope of the current project iteration due to time constraints.
 
 ### Post images
 
-- At the begining of the project, there was an idea to include an image with posts, set by the post author. To facilitate this, cloudinary was installed. It become clear however that this was unnesicary given the site purpose, and an image would detract from the theme of the site, and also from the user experience as a whole. It's benefits would be very niche and it would be potentially open to misuse, making the moderation of the site more difficult. Cloudinary has been left in the project should any image functionality be required once a solution has been found to the aforementioned problems, as well as to host static and media files once deployed to Heroku. One such use of images that would not impact the site's theme would be adding more customisation and an image upload for user profiles.
+- At the beginning of the project, there was an idea to include an image with posts, set by the post author. To facilitate this, cloudinary was installed. It become clear however that this was unnecessary given the site purpose, and an image would detract from the theme of the site, and also from the user experience as a whole. It's benefits would be very niche and it would be potentially open to misuse, making the moderation of the site more difficult. Cloudinary has been left in the project should any image functionality be required once a solution has been found to the aforementioned problems, as well as to host static and media files once deployed to Heroku. One such use of images that would not impact the site's theme would be adding more customisation and an image upload for user profiles.
 
 ### User Profiles
 
-- One feature that may improve user engagement with the site would be adding customisation to user profiles. As mentioned this could utilize cloudinary's image hosting to display a small thumbnail profile picture next to a user's comment. Including images in this way would not impact the homepage, with comments only being visible on each individual post's page. Django's built in admin panel does have sections for user's first name or last name, which could be utilised in the register page to improve communications from the site admin to the site user, instead of having to refer to people via their usernames. This feature was not included in the current itteration due to knowledge gaps and the time that'd be required to impliment it. 
+- One feature that may improve user engagement with the site would be adding customisation to user profiles. As mentioned this could utilize cloudinary's image hosting to display a small thumbnail profile picture next to a user's comment. Including images in this way would not impact the homepage, with comments only being visible on each individual post's page. Django's built in admin panel does have sections for user's first name or last name, which could be utilised in the register page to improve communications from the site admin to the site user, instead of having to refer to people via their usernames. This feature was not included in the current iteration due to knowledge gaps and the time that'd be required to implement it. 
 
 ### Downvote
 
-- The main feature that could not be added in the project's current itteration was the downvote feature. The project was started with the idea of having posts voted on, rather than being liked. Because of this, any classes or variables related to this functionality are usually called vote or votes, rather like or likes, which is what the feature became. The primary block on this feature was a knowledge gap, and a concern over the amount of time required to fill that gap so the feature could be implimented. The current itteration of the like functionality is flawed and would be one of the first features to be reviewed in the feature. The way that likes are stored and displayed via the page refreshing is far from ideal and I'm certain a more suitable solution could be found. Although not the original goal, users being able to like posts has still provided a large benefit to the project, not only improving the user experience and interaction with the site, but also providing a conventional pleasing way to sort the posts on the main page. A user would want and expect to see popular posts at the top of the page, and it makes the site look good to the user because it's promoting the posts with the most user interactions.
+- The main feature that could not be added in the project's current iteration was the downvote feature. The project was started with the idea of having posts voted on, rather than being liked. Because of this, any classes or variables related to this functionality are usually called vote or votes, rather like or likes, which is what the feature became. The primary block on this feature was a knowledge gap, and a concern over the amount of time required to fill that gap so the feature could be implemented. The current iteration of the like functionality is flawed and would be one of the first features to be reviewed in the feature. The way that likes are stored and displayed via the page refreshing is far from ideal and I'm certain a more suitable solution could be found. Although not the original goal, users being able to like posts has still provided a large benefit to the project, not only improving the user experience and interaction with the site, but also providing a conventional pleasing way to sort the posts on the main page. A user would want and expect to see popular posts at the top of the page, and it makes the site look good to the user because it's promoting the posts with the most user interactions.
 
 ---
 
 ## Data Model
 
-![https://i.imgur.com/hGvGKKd](https://i.imgur.com/hGvGKKd.jpg "Data Model")
+![https://i.imgur.com/oVbPugO](https://i.imgur.com/oVbPugO.jpg "Data Model")
 
-The data models used relate to the Post, Comments and Votes with the Post being the tying link between the three. This link is required for the comments and votes to be attached to the relevant post. There are two aspects of the data model that are not currently being displayed to the user, namely the 'Update On' data in both post and comments. This was a concious decision to stop the home page or post page from becoming too cluttered and text heavy. The data was left in the models as it could be used in future were users editing their posts to make the commenters look silly, so some sort of 'updated on' field needed to be displayed, or should it be required for some other functionality.
+The data model used relates to the Post and Comments features with the Post being the tying link between the two, identified via the post slug. This link is required for the comments to be attached to the relevant post. There are two aspects of the data model that are not currently being displayed to the user, namely the 'Update On' data in both post and comments. This was a conscious decision to stop the home page or post page from becoming too cluttered and text heavy. The data was left in the models as it could be used in future were users editing their posts to make the commenters look silly, so some sort of 'updated on' field needed to be displayed, or should it be required for some other functionality.
 
 ---
 
@@ -144,10 +148,10 @@ The data models used relate to the Post, Comments and Votes with the Post being 
 
 - I created a new app on Heroku named off-the-map
 - I then added a postgres database to the app in Heroku
-- I took the postgres url from Heroku and added it as an enviroment variable in an env.py file in gitpod
-- I added a secretkey as an enviroment variable in the same env.py file, then stored this as a config var in Heroku
-- I imported the database url in settings.py along with adding the created enviroment variables to complete the database set up
-- From my cloudinary account, I copied over my API enviroment variable and stored it as another enviroment variable in my env.py file and a config var in Heroku
+- I took the postgres url from Heroku and added it as an environment variable in an env.py file in gitpod
+- I added a secretkey as an environment variable in the same env.py file, then stored this as a config var in Heroku
+- I imported the database url in settings.py along with adding the created environment variables to complete the database set up
+- From my cloudinary account, I copied over my API environment variable and stored it as another environment variable in my env.py file and a config var in Heroku
 - After making sure that cloudinary was installed in settings.py, I ensured that all media and static files would be stored there
 - Once the templates directory has been created and joined with the base directory, I changed the DIRS key to refer to template directory variable
 - I then added the Heroku link into the allowed hosts in settings.py
@@ -158,4 +162,15 @@ The data models used relate to the Post, Comments and Votes with the Post being 
     - git push origin main (pushing to GitHub)
     - git push heroku main (pushing to Heroku)
 
+---
+
+## Credits
+
+- Initial project creation, first deployment and starting structure was built from the Code Institute 'I Think Therefore I Blog' walkthrough project
+- Chosen bootstrap template can be found [here.](https://startbootstrap.com/template/full-width-pics)
+- Google Font can be found [here.](https://fonts.google.com/specimen/Amatic+SC?category=Display,Handwriting&preview.text=Off%20The%20Map&preview.text_type=custom#standard-styles)
+- CSS text reflection tutorials [here](https://www.geeksforgeeks.org/how-to-create-reflection-effect-using-html-and-css/) and [here.](https://www.youtube.com/watch?v=nqa-nC6vMqY&t=1s)
+- Creating the Edit and Delete functionality was aided by watching [this video.](https://www.youtube.com/watch?v=EX6Tt-ZW0so)
+- Changing variables defined in the generic.ListView to display two views on one page was found [here.](https://stackoverflow.com/questions/31133963/multiple-models-generic-listview-to-template)
+- Images were taken from [pexels.com](https://www.pexels.com/)
 
