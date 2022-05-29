@@ -106,6 +106,16 @@ This decision was made because the site does not contain any actual pagination, 
 
 - If the user is signed in, they'll have access to the 'Post' option on the navbar. Clicking this link will take the user to the new post page. This is a very simple form where they'll be asked for a post title and the post content itself. Both fields are required to complete the form and there's validation to make sure that they are completed. Once done, the user can hit Submit and they'll be sent to the home page with a confirmation message that their post was successful.
 
+### Messages
+
+- Inbuilt django messages have been configured in this project to display successes to the user. A user will receive a message placed just under the nav that will disappear after 3 seconds on the following actions:
+    - Signing In
+    - Signing Out
+    - Leaving a comment
+    - Submitting a post
+    - Editing a post
+    - Deleting a post
+
 ### Admin Page
 
 - The admin page is handled by django's built in admin panel. From here the site admin can moderate posts and comments, deleting or editing them as required. They can also moderate users and change passwords. One particularly useful action that can be taken on the admin page is archiving posts. As the first 8 posts on the homepage are displayed in order of popularity, the posts there could remain there for a long time. Should the admin decide to archive a post, it will then be removed from the page but still accessible via the admin page. The admin page also provides the user the ability to add comments or posts. When the project was first started, there was much more emphasis placed on the creation of posts from this page, so tools such a summernote were added to enhance the created posts. However, as the project developed it became clear that this functionality wouldn't be necessary in the current project iteration, as it was much easier and quicker to add posts from the main site pages. There was also an issue found with adding and then editing posts created in summernote, which is detailed in the testing document.
@@ -156,6 +166,7 @@ The data model used relates to the Post and Comments features with the Post bein
 - Once the templates directory has been created and joined with the base directory, I changed the DIRS key to refer to template directory variable
 - I then added the Heroku link into the allowed hosts in settings.py
 - I created a proc file to show Heroku what's required to run the project, entering web and gunicorn
+- I set Debug to False in settings.py and added X_FRAME_OPTIONS = 'SAMEORIGIN' to enable the summernotes editor to work once the site has been deployed to Heroku.
 - Rather than then linking the Heroku app with Github's deployment, as that functionality had been removed due to a security concern, I deployed to Heroku directly from the gitpod terminal via the following commands:
     - heroku login -i
     - heroku git:remote -a off-the-map 
