@@ -169,19 +169,19 @@ a.content-link {
 }
 
 #ocean-header-image {
-  background-image: url(../images/ocean-background2.webp);
+  background-image: url(https://res.cloudinary.com/cmecrow/image/upload/v1653834911/static/images/ocean-background2.c7001b776482.webp);
 }
 
 #waves-image {
-  background-image: url(../images/waves-background.webp)
+  background-image: url(https://res.cloudinary.com/cmecrow/image/upload/v1653834911/static/images/waves-background.31a0c5dd1cde.webp)
 }
 
 .post-container {
-  background-image: url(../images/bluebackground3.webp);  
+  background-image: url(https://res.cloudinary.com/cmecrow/image/upload/v1653834912/static/images/bluebackground3.d1b41d195d6b.webp);  
 }
 
 .post-container-large {
-  background-image: url(../images/bluebackground3-large.webp)
+  background-image: url(https://res.cloudinary.com/cmecrow/image/upload/v1653834912/static/images/bluebackground3-large.8a6789b3bc4c.webp)
 }
 
 .comment-container {
