@@ -47,5 +47,9 @@ Testing on this project has been done both manually and through validators and l
 
             path('new_post/', views.CreatePost.as_view(), name='new_post'),
     Simply had to be placed above the PostDetail url path.
+
+## Linting issues
+
+- There are linting issues in views.py as the linter is looking for 'Post' for example in that file, when it is actually being imported from models.py. Because the linter can not find Post, it cannot find any objects relating to it so it is giving an incorrect error of 'Class Post has no objects member'.
     
 

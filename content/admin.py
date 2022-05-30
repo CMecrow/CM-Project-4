@@ -16,4 +16,3 @@ class PostAdmin(SummernoteModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('author', 'body')
     search_fields = ('author', 'body')
-

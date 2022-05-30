@@ -28,7 +28,7 @@ class PostList(generic.ListView):
 
 class PostDetail(View):
 
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = Comment.objects.order_by('created_on')
@@ -47,7 +47,7 @@ class PostDetail(View):
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, slug):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = Comment.objects.order_by('created_on')
@@ -81,7 +81,7 @@ class PostDetail(View):
 
 class CreatePost(View):
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
 
         return render(
             request,
@@ -91,7 +91,7 @@ class CreatePost(View):
             },
         )
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
 
         create_form = CreateForm(data=request.POST)
 
@@ -124,7 +124,7 @@ class PostVote(View):
 
 class EditPost(View):
 
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug):
 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -138,7 +138,7 @@ class EditPost(View):
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, slug):
 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -152,7 +152,7 @@ class EditPost(View):
 
 class DeletePost(View):
 
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug):
 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -166,7 +166,7 @@ class DeletePost(View):
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, slug):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         post.delete()
