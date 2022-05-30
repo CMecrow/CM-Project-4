@@ -51,5 +51,23 @@ Testing on this project has been done both manually and through validators and l
 ## Linting issues
 
 - There are linting issues in views.py as the linter is looking for 'Post' for example in that file, when it is actually being imported from models.py. Because the linter can not find Post, it cannot find any objects relating to it so it is giving an incorrect error of 'Class Post has no objects member'.
+
+## Deployed project
+
+- One issue I can not find a fix for is on the deployed heroku page, sometimes the error 'Failed to load resource: the server responded with a status of 404 (Not Found) /favicon.ico:1' This is particularly odd because no where in the project is a favicon mentioned.
+
+## Accessibility
+
+- The site's overall accessibility was an area that was considered throughout the project. The font choice was difficult to match the theme but remain strongly legible but I believe this was achieved. The same concerns were held for image and colour choice, but again I believe this was achieved.
+
+![https://i.imgur.com/Wp1Nd2n](https://i.imgur.com/Wp1Nd2n.jpg "Lighthouse rating")
+
+One issue that was picked up through Lighthouse was reducing the amount of unused CSS. As the CSS was imported with the bootstrap template, this would require a lot of testing and would be revisited in the next project iteration.
+
+## Validator Testing
+
+- HTML - No errors when passed through HTML validator - [W3C validator](https://validator.w3.org/nu/)
+
+- CSS - Errors returned here where present in the imported bootstrap css, due to time constraints and a lack of understanding of their specific function, these were left included. [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
     
 

@@ -53,29 +53,43 @@ Note: These are available in the GitHub repo via a kanban board created in Proje
 
 ### Navbar
 
+![https://i.imgur.com/PDxoA1D](https://i.imgur.com/PDxoA1D.jpg "Site Navbar")
+
 - The navbar was kept clear and uncluttered with the site name on the left that also functions as 'home' navigation, and then only two links on the right hand side. Before the user had created an account or logged in, these would be 'Sign In' and 'Register'. Because the user can only view posts and not interact with the site before they're logged in, there was no need to add a 'Post' link until they were authenticated. Once an account has been created and the user has signed in, the links change to 'Post' and 'Sign Out', reflecting the new choices that are now available to the user. Getting the user to register and then sign in is very important for the site because it allows them to interact with existing posts, and also create posts themselves. Because of the importance of 'Register', 'Sign In' and then once completed, 'Post'. The navbar was chosen to be fixed at the top of the screen, allowing easy access at all times for the user. This was also important because of the amount of content displayed on the homepage, depending on device width, there could be a lot of scrolling involved for the user. To improve responsiveness, the layout chosen also includes the functionality for the nav links to collapse into a hamburger icon for ease of use. Though this may not have been explicitly useful in the current iteration of the site with there only being two links present, it would future proof any future site growth.
 
 ### Footer
+
+![https://i.imgur.com/qyn9swy](https://i.imgur.com/qyn9swy.jpg "Site Footer")
 
 - The footer has been designed to mirror the navbar in terms of both size, display and colour. Like the navbar, it is fixed to the bottom of the page, this is again to improve access to the links within the footer, and also to visually bookend the pages. The links included in the footer point to the site's social media presence (though currently link through to the respective homepages). Again, colour choice is kept very simple with clear distinction between link icons and background colour to help with accessibility.
 
 ### Header + Mid page image and text
 
+![https://i.imgur.com/vjbNOOm](https://i.imgur.com/vjbNOOm.jpg "Site header and text")
+
 - The header image is the only main image that's repeated across pages throughout the site. As mentioned, it was a priority that the created posts take the foreground on the site, so any large images would have to be muted and not drag attention away. Both chosen images are of the ocean to match the theme of the site, and work more to break up the content and page than be a point of interest themselves. The accompanying text, 'Uncharted Waters' and 'Here be Monsters' again fit the nautical theme, but looked very boring and blockish when first put onto the page. To remedy this I duplicated the text and styled it via CSS to appear as a water reflection, taking guidance from both [this video](https://www.youtube.com/watch?v=nqa-nC6vMqY&t=1s), and [this tutorial](https://www.geeksforgeeks.org/how-to-create-reflection-effect-using-html-and-css/).
 
 ### Register
+
+![https://i.imgur.com/oxYPwQB](https://i.imgur.com/oxYPwQB.jpg "Site Sign Up")
 
 - The register page, accessed via the navbar is a simple sign up form. There is a direction to the sign in page should the user already have an account and then fields for Username, Email and Password. All fields are left aligned which means the input fields aren't aligned and appear a bit haphazard. This actually suits the theme of the site, with the 'Sign Up' font above it being handwritten, certain letters at an angle and at different heights. The email field is optional as the site does not currently have email verification, this is a feature that could be added in future and will be listed in the future features section below. The account authorisation, including registration is handled by django-allauth, [details here](https://django-allauth.readthedocs.io/en/latest/).
 
 ### Sign in
 
+![https://i.imgur.com/ibe8Z49](https://i.imgur.com/ibe8Z49.jpg "Site Sign In")
+
 - The sign in page is very similar to the register page described above. There is a link to the sign up page, should the user have clicked on the wrong option in the nav. Then there are input fields for username and password with a checkbox for remember me. After clicking submit, if unsuccessful an error of 'The username and/or password you specified are not correct.' If successful the user is taken back to the home page with a message to say that they've successfully signed in as their username.
 
 ### Sign out
 
+![https://i.imgur.com/Z7nPdso](https://i.imgur.com/Z7nPdso.jpg "Site Sign Out")
+
 - Only visible once the user is signed in, Sign Out if accessible via the navbar. Clicking the link takes you to a simple page with confirmation that you want to sign out and a submit button. If the button is pressed the user is given another confirmation message that they have successfully signed out.
 
 ### Post display
+
+![https://i.imgur.com/Auxulat](https://i.imgur.com/Auxulat.jpg "Site post display")
 
 - The post content is limited to 300 characters, this is by design as the user is meant to be leaving unpopular opinions, rather than sentences to potentially justify the opinions or make a case. It's up to the other users to like the posts to make that decision! Because the posts are then relatively short, on a wider device, we can have them displayed as four across a row, reducing as the width of the page reduces. This is good for the user as it means they can browse more content straight away and then select a post they find interesting to read the comments or give it a like. 
 The post cards themselves contain, the post content, the post author, the date and time the post was made and finally the post interactions, the amount of likes and comments left. With this format, the user can see which posts have had the most interaction and can join the conversation or read reactions to the post. The cards have a faint blue patterned background with a drop shadow to lift them off the plain white background of the homepage.
@@ -83,6 +97,8 @@ The homepage has 2 displays of 8 posts. The first section of 8 is limited via pa
 This decision was made because the site does not contain any actual pagination, so it was important to display both the most popular posts, but also the new posts so they could be interacted with as well.
 
 ### Individual post view
+
+![https://i.imgur.com/Au366ba](https://i.imgur.com/Au366ba.jpg "Individual post view")
 
 - Each post card visible on the home page is a link to the individual post's page. This is indicated to the user via the cursor changing to pointer, indicating that the card can be clicked to take you elsewhere. The post's page displays the post in a similar format to the homepage, though this time in a much larger container and with some icons the user can interact with. These icons are again only accessible if the user is registered and logged in.
     - The first icon that can be clicked is the thumbs up, 'like' icon, with accompanying counter to its left. If clicked, the page is reloaded with the icon now appearing as blue along with the counter increasing, indicating that the like has been added. The icon can also be clicked again to remove the like, again refreshing the page and updating the icon and counter. Functionality has been added so that the likes are added to the database and each user can only like each post once. This keeps the post listing integrity intact, blocking users from inflating a post's like count by themselves.
@@ -92,21 +108,29 @@ This decision was made because the site does not contain any actual pagination, 
 
 #### Comments
 
-- The comments box is displayed underneath the post. Under a heading of 'Comments', a list of all existing comments is displayed with most recent at the top, each comment details the user, the comment left and then the date and time that the comment was created. If the user viewing the post is logged in, they can leave a comment. They will be notified who they are posting as, should they have multiple accounts. If the comment field is left blank when the user hits submit then they will receive a prompt to enter a comment. Once the comment is successfully submitted, the page is refreshed so the user can see their entered comment, and a message is also shown at the top of the page confirming that the comment was left successfully. 
+- The comments box is displayed underneath the post (see image above). Under a heading of 'Comments', a list of all existing comments is displayed with most recent at the top, each comment details the user, the comment left and then the date and time that the comment was created. If the user viewing the post is logged in, they can leave a comment. They will be notified who they are posting as, should they have multiple accounts. If the comment field is left blank when the user hits submit then they will receive a prompt to enter a comment. Once the comment is successfully submitted, the page is refreshed so the user can see their entered comment, and a message is also shown at the top of the page confirming that the comment was left successfully. 
 
 ### Edit Post
+
+![https://i.imgur.com/uamur0T](https://i.imgur.com/uamur0T.jpg "Edit post")
 
 - As mentioned, if the user viewing the post is the post's author, an edit icon is visible. Clicking this will take the user to an edit post page where the title and post itself can be changed. Hitting submit on the post will then submit the post, take the user back to the post detail page and provide a message confirming this to the user.
 
 ### Delete Post
 
+![https://i.imgur.com/JxW3and](https://i.imgur.com/JxW3and.jpg "Delete post")
+
 - Again, if the user viewing the post is the post's author, a delete icon is visible. Clicking this will take the user to a delete post page where the post is displayed along with the like and comment counter. There is a distinct confirmation box displayed below the post providing the user with the option of cancelling which redirects back to the post detail page, or confirming, where the post will be deleted and a message displayed to the user.
 
 ### Create Post
 
+![https://i.imgur.com/Tbp9gXH](https://i.imgur.com/Tbp9gXH.jpg "Create post")
+
 - If the user is signed in, they'll have access to the 'Post' option on the navbar. Clicking this link will take the user to the new post page. This is a very simple form where they'll be asked for a post title and the post content itself. Both fields are required to complete the form and there's validation to make sure that they are completed. Once done, the user can hit Submit and they'll be sent to the home page with a confirmation message that their post was successful.
 
 ### Messages
+
+![https://i.imgur.com/YtMQsIa](https://i.imgur.com/YtMQsIa.jpg "Site messages")
 
 - Inbuilt django messages have been configured in this project to display successes to the user. A user will receive a message placed just under the nav that will disappear after 3 seconds on the following actions:
     - Signing In
@@ -117,6 +141,8 @@ This decision was made because the site does not contain any actual pagination, 
     - Deleting a post
 
 ### Admin Page
+
+![https://i.imgur.com/JoFNUSR](https://i.imgur.com/JoFNUSR.jpg "Admin page")
 
 - The admin page is handled by django's built in admin panel. From here the site admin can moderate posts and comments, deleting or editing them as required. They can also moderate users and change passwords. One particularly useful action that can be taken on the admin page is archiving posts. As the first 8 posts on the homepage are displayed in order of popularity, the posts there could remain there for a long time. Should the admin decide to archive a post, it will then be removed from the page but still accessible via the admin page. The admin page also provides the user the ability to add comments or posts. When the project was first started, there was much more emphasis placed on the creation of posts from this page, so tools such a summernote were added to enhance the created posts. However, as the project developed it became clear that this functionality wouldn't be necessary in the current project iteration, as it was much easier and quicker to add posts from the main site pages. There was also an issue found with adding and then editing posts created in summernote, which is detailed in the testing document.
 

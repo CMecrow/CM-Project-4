@@ -135,6 +135,10 @@ nav {
   margin-bottom: 0;
 }
 
+#here-up {
+  margin-bottom: 0;
+}
+
 .reflection {
   margin: 0;
   padding: 0;
@@ -220,7 +224,7 @@ a.content-link {
 }
 
 #delete-can {
-  padding-left: none;
+  padding-left: 0;
   color: red;
 }
 
