@@ -8,7 +8,9 @@ As a developer, I've been tasked with creating a website where users can post th
 
 The project has been made using Django / Python, HTML, CSS and JavaScript.
 
-[Here is the live version of this project](https://off-the-map.herokuapp.com/)
+~~[Here is the live version of this project](https://off-the-map.herokuapp.com/)~~
+
+The project was redeployed via Render because of the changes to free Heroku hosting. [Link here.](https://cm-project-4.onrender.com/)
 
 ## Project Goals
 
